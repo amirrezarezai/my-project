@@ -5,4 +5,5 @@
 
 This is a page to present my training projects.
 I am the developer of Front
-I'm learning react
+
+now , I'm learning react
