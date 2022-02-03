@@ -1,0 +1,20 @@
+body{
+    background-color: black;
+    color: rgb(238, 168, 16);
+    text-align: center;
+}
+#inp{
+    height: 2.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgb(238,168,16);
+}
+#btn{
+    height: 2.5rem;
+    background-color: rgb(238,168,16);
+    font-size: 1rem;
+    font-weight: bold;
+}
+#text{
+    font-size: 2rem;
+}
