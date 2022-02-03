@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tails & heads</title>
+    <style>
+        body
+        {
+            background-color: rgb(228, 213, 2);
+        }
+        button
+        {
+            background-color: rgb(43, 2, 2);
+            color: aliceblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px #ddd;
+            width: 49%;
+            height: 50px;
+            display: inline-block;
+            font-size: larger;
+            cursor: pointer;
+            box-shadow: 2px 10px 14px rgb(43, 2, 2);
+        }
+        button:hover
+        {
+            background-color: #fff;
+            color: rgb(43, 2, 2);
+        }
+        .message
+        {
+            color: rgb(2, 34, 43);
+            text-shadow: 2px 5px 5px #ddd;
+            font-size: 32px;
+            text-align: center;
+            font-weight: bolder;
+            box-sizing: border-box;
+            padding-top: 50px;
+        }
+        .message1
+        {
+            color: rgb(2, 34, 43);
+            text-shadow: 2px 5px 5px #ddd;
+            font-size: 24px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .score
+        {
+            margin: 20px 10%;
+            text-align: center;
+            color: aliceblue;
+            font-weight: bold;
+            font-size: 20px;
+            background-color: rgb(196, 14, 14);
+
+        }
+        .win-lose
+        {
+            margin: 20px 30%;
+            text-align: center;
+            color: aliceblue;
+            font-weight: bold;
+            font-size: 30px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button">Heads</button>
+    <button type="button">Tails</button>
+    <div class="message">Select either Heads or Tails</div>
+    <div class="message1"></div>
+    <div class="score"></div>
+    <div class="win-lose"></div>
+    <script>
+        const Coins =['Heads','Tails'];
+        var score = [0,0];
+        const message = document.querySelector('.message1');
+        const number = document.querySelector('.score');
+        const winlose = document.querySelector('.win-lose');
+        const button = document.querySelectorAll('button');
+
+
+            for(let i=0;i<button.length;i++)
+        {
+            button[i],addEventListener('click',tossCoins);
+        }
+        function tossCoins(e)
+        {
+            let player = e.target.innerText;
+            let computerCoins = Math.floor(Math.random()*2);
+            let Coinsguess = Coins[computerCoins];
+            message.innerHTML = 'computer select :' + Coinsguess;
+            let output;
+            if(player === Coinsguess)
+            {
+                output = 'player win .';
+                score[0]++;
+            }
+            else if(player !== Coinsguess){
+                output = 'computer win .';
+                score[1]++;
+            }
+            number.innerHTML = output + '</br> player :' + score[0] +'</br> computer :'+ score[1];
+            if(score[0] === 10)
+            {
+                winlose.innerHTML = 'you win!'
+                winlose.style.backgroundColor ='green'
+            }
+            else if (score[1]=== 10){
+                winlose.innerHTML = 'you lose!'
+                winlose.style.backgroundColor ='red' 
+            }
+        }
+    </script>
+
+</body>
+</html>

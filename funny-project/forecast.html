@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast Game</title>
+    <style>
+        body
+        {
+            background-color: rgb(22, 22, 22);
+        }
+        .numb
+        {
+            font-size: 2em;
+        }
+        .message
+        {
+            color: rgb(250,246,0);
+            font-size: 3em;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bolder;
+
+        }
+        .btn
+        {
+            color: rgb(22,22,22);
+            background-color: rgb(250,246,0);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bolder;
+            margin: 7% 46%;
+            width: 100px;
+            height: 35px;
+            transition-duration: 0.5s;
+        }
+        .numb{
+            background-color: rgb(250,246,0);
+            margin-left: 10px;
+        }
+        .game
+        {
+            text-align: center;
+            margin-top: 5%;
+        }
+        .btn:hover
+        {
+            background-color: rgb(22,22,22);
+            color: rgb(250,246,0);
+            border: 1px solid rgb(250,246,0);
+        }
+        .help
+        {
+            color: rgb(250,246,0);
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">Guess combo</div>
+    <div class="game"></div>
+    <button type="button" class="btn">Start</button>
+    <div class="help">Instructions: Guess the combo, blue means higher red means lower.  Try to solve it in as little guesses as possible.</div>
+    <div class="win"></div>
+</body>
+<script>
+    let body = document.querySelector('body');
+    let gameArea = document.querySelector('.game');
+    let btn_game = document.querySelector('.btn');
+    let message = document.querySelector('.message');
+    var win = document.querySelector('.win');
+    let score =0;
+
+    let gamePlay = false;
+    btn_game.addEventListener('click',function()
+    {
+        if(gamePlay==false)
+        {
+            gamePlay = true;
+            btn_game.innerHTML = 'check combo';
+            maker();
+            score=0;
+            
+        }
+        else{
+            const numbers = document.querySelectorAll('.numb');
+            score++;
+            message.innerHTML='Guesses  '+score;
+            let win_score = 0;
+            for(let i=0;i<numbers.length;i++)
+            {
+                if(numbers[i].value == numbers[i].correct)
+                {
+                    numbers[i].style.backgroundColor = 'green';
+                    numbers[i].style.color = 'white'
+                    win_score++;
+                }
+                else{
+                    if(numbers[i].value > numbers[i].correct)
+                    {
+                        numbers[i].style.backgroundColor = 'red';
+                        numbers[i].style.color = 'white';
+                    }
+                    else{
+                        let color = (numbers[i].value < numbers[i].correct) ? "blue" : "red";
+                        numbers[i].style.color = 'white';
+                        numbers[i].style.backgroundColor=color;
+                    }
+                    
+                    if(win_score == numbers.length)
+                    {
+                       gameEnd(); 
+                    }
+                }
+            }
+        }
+    });
+    function gameEnd()
+    {
+        btn_game.innerHTML = 'Restart';
+        gamePlay= false;
+
+    }
+    function maker()
+    {
+        for(let i=0 ;i<9;i++)
+        {
+            let el =document.createElement('input');
+            el.setAttribute('type','number');
+            el.max=9;
+            el.min=0;
+            el.classList.add('numb');
+            el.size=1;
+            el.correct = Math.floor(Math.random()*10);
+            el.style.width = '50px';
+            gameArea.appendChild(el);
+            el.order=i;
+
+        }
+    }
+
+</script>
+</html>
