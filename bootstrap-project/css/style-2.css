@@ -1,0 +1,21 @@
+body{
+    background: #d9aa1a;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.items{
+    
+}
+.items a{
+    text-decoration: none;
+    margin: auto 1.5rem;
+    color: black;
+    font-weight: bold;
+    transition-duration: 0.1s;
+}
+.items a:hover{
+    border-bottom: 3px solid black;
+}
+.actived{
+    border-bottom: 3px solid black;
+}
