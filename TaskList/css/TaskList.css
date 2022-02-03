@@ -1,0 +1,56 @@
+*
+{
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    direction: rtl;
+}
+.container
+{
+    width: 80%;
+    height: 90vh;
+    background-color: rgb(253, 233, 233);
+    margin-top: 10px;
+    box-shadow: 10px 10px 2px #ddd;
+}
+.container .content-up{
+    padding: 10px;
+}
+.btn-1
+{
+    margin: 20px 0;
+    text-align: center;
+    width: 35%;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(247, 118, 118);
+    transition-duration: 0.8s;
+}
+.btn-1:hover{
+    background-color: rgb(247, 184, 184);
+    color: rgb(247,118,118);
+}
+.content-down
+{
+   margin:0 10px;
+}
+.collection-item
+{
+    float: right;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    left: 20px;
+}
+.trash-item
+{
+    cursor: pointer;
+}
+.trash-item :hover{
+    color: aqua;
+}
+.collection-item a{
+    float: left;
+    clear: both;
+}
