@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 class="message"></h3>
+    <script>
+        let message = document.querySelector('.message');
+         function fact(n)
+         {
+             if(n == 0) return 1;
+             return n*fact(n-1);
+         }
+         function pow(a,b)
+         {
+             if(b == 0) return 1;
+             return a*pow(a,b-1);
+         }
+         function fibo(n)
+         {
+             if(n==1 || n==2) return 1;
+             return fibo(n-1)+fibo(n-2);
+         }
+         function isPlain(s)
+         {
+             if(s.length <=1) return true;
+             let len = s.length;
+             return (s.charAt(0) === s.charAt(len-1) && isPlain(s.substr(1,s-1)))
+         }
+         message.innerHTML = fact(5) + `<br>`;
+         message.innerHTML += pow(2,5)+`<br>`;
+         message.innerHTML +=fibo(8)+`<br>`;
+         message.innerHTML += isPlain('babab')+`<br>`;
+
+         function f(n)
+         {
+           
+            message.innerHTML+= n;
+             if(n>0)
+             {
+                 f(n-1)
+                 f(n-2)
+             }
+             message.innerHTML+= n;
+         }
+         f(2);
+
+    </script>
+</body>
+</html>
